@@ -29,9 +29,8 @@ blood-cancer-detection/
 
 ## 🚀 How to Run the Project
 
-##1. Clone the Repository
+1. Clone the Repository
 
-```bash
 git clone https://github.com/rishika712/blood-cancer-detection.git
 cd blood-cancer-detection
 
