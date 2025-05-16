@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Classification Result</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("{{ url_for('static', filename='bgimage/bgres.jpg') }}");
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .result-container {
+            background-color: rgba(255, 255, 255, 0.8); /* Adding a semi-transparent white background to improve readability */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .prediction-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .prediction-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            text-align: left; /* Align text to the left */
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .try-another-btn {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .exit-login-btn {
+            background-color: #dc3545;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h2><b>Classification Result</b></h2>
+        <div class="prediction" style="border: 1px solid #ccc; padding: 10px; border-radius: 5px;">
+            <p><b>Prediction:</b></p>
+            <ul class="prediction-list">
+                <li class="prediction-item">Predicted Class: {{ predicted_class }}</li>
+                <li class="prediction-item">Probability: {{ '%.3f' % probability }}%</li>
+            </ul>
+        </div>
+        <a href="/upload" class="button try-another-btn">Try another image</a>
+        <a href="/login" class="button exit-login-btn">Exit to Login Page</a>
+    </div>
+</body>
+</html>

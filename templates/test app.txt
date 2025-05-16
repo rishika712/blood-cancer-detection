@@ -1,0 +1,58 @@
+from flask import Flask, request, render_template
+from flask_sqlalchemy import SQLAlchemy
+from werkzeug.security import generate_password_hash, check_password_hash
+import tensorflow as tf
+import numpy as np
+
+app = Flask(__name__)
+
+# Configure SQLAlchemy
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.secret_key = 'your_secret_key'
+db = SQLAlchemy(app)
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(50), unique=True, nullable=False)
+    password_hash = db.Column(db.String(128), nullable=False)
+
+    def set_password(self, password):
+        self.password_hash = generate_password_hash(password)
+
+    def check_password(self, password):
+        return check_password_hash(self.password_hash, password)
+
+# Load your pre-trained model
+model = tf.keras.models.load_model('model.h5')
+
+@app.route('/')
+def home():
+    return render_template('login.html')
+
+@app.route('/register')
+def register():
+    return render_template('register.html')
+
+@app.route('/login')
+def login():
+    # Login logic here
+    return render_template('upload.html')
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    imagefile = request.files['imagefile']
+    image_path = "./images/" + imagefile.filename
+    imagefile.save(image_path)
+
+    image = tf.keras.preprocessing.image.load_img(image_path, target_size=(224, 224))
+    input_arr = tf.keras.preprocessing.image.img_to_array(image)
+    input_arr = np.array([input_arr])  # Convert single image to a batch.
+    predictions = model.predict(input_arr)
+    # Process your result for human
+    pred_result = predictions[0]
+    return render_template('result.html', prediction=pred_result)
+
+if __name__ == '__main__':
+    db.create_all()
+    app.run(debug=True)

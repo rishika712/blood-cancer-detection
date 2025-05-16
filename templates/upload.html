@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Image</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("{{ url_for('static', filename='bgimage/bgres.jpg') }}");
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #image-preview {
+            max-width: 300px;
+            max-height: 300px;
+            margin-top: 20px;
+            display: none;
+        }
+        .error-message {
+            color: red;
+        }
+        form {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            border: 1px solid #ccc; /* Add border */
+            border-radius: 8px; /* Add border-radius for rounded corners */
+            background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent white background */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow */
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>Upload Image for Classification</h2>
+        <form id="upload-form" action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="imagefile" id="imagefile" accept="image/*"><br><br>
+            <img id="image-preview" src="#" alt="Image Preview"><br><br>
+            <input type="submit" value="Upload and Classify" id="upload-button" style="display: none;">
+        </form>
+    </div>
+
+    <script>
+        // Function to display image preview
+        function previewImage(event) {
+            var input = event.target;
+            var preview = document.getElementById('image-preview');
+            var button = document.getElementById('upload-button');
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block'; // Show the image preview
+                    button.style.display = 'block'; // Show the upload button
+                }
+                reader.readAsDataURL(input.files[0]); // Read the uploaded file as data URL
+            } else {
+                preview.src = "#";
+            }
+        }
+
+        // Attach event listener to the file input element
+        document.getElementById('imagefile').addEventListener('change', previewImage);
+    </script>
+</body>
+</html>
