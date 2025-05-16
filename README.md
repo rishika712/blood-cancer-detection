@@ -35,12 +35,12 @@ blood-cancer-detection/
 git clone https://github.com/rishika712/blood-cancer-detection.git
 cd blood-cancer-detection
 
-2. Set Up Environment (Optional but recommended)
+** 2. Set Up Environment (Optional but recommended)
 python -m venv venv
 source venv/bin/activate        # For Linux/macOS
 venv\Scripts\activate           # For Windows
 
-3. Install Required Libraries
+** 3. Install Required Libraries
 pip install -r requirements.txt
 
 
