@@ -45,10 +45,10 @@ pip install -r requirements.txt
 4. Run the Notebook
 Launch Jupyter Notebook and open the file:
 
-**bash
-**Copy
-**Edit
-**jupyter notebook Blood_Cancer_Detection.ipynb
+**bash**
+**Copy**
+**Edit**
+**jupyter notebook Blood_Cancer_Detection.ipynb**
 
 ⚠️ Disclaimer
 This project is intended for educational and research purposes only and should not be used as a substitute for professional medical advice, diagnosis, or treatment.
