@@ -35,28 +35,25 @@ git clone https://github.com/rishika712/blood-cancer-detection.git
 cd blood-cancer-detection
 
 2. Set Up Environment (Optional but recommended)
+
 python -m venv venv
 source venv/bin/activate        # For Linux/macOS
 venv\Scripts\activate           # For Windows
 
 3. Install Required Libraries
+
 pip install -r requirements.txt
 
 4. Run the Notebook
+
 Launch Jupyter Notebook and open the file:
 
- **bash**
+jupyter notebook Blood_Cancer_Detection.ipynb
 
- **Copy**
-
- **Edit**
-
- **jupyter notebook Blood_Cancer_Detection.ipynb**
-
-⚠️ Disclaimer
+## ⚠️ Disclaimer
 This project is intended for educational and research purposes only and should not be used as a substitute for professional medical advice, diagnosis, or treatment.
 
-🤝 Contribution
+## 🤝 Contribution
 Have suggestions or want to improve the model? Feel free to:
 
 Fork the repo
@@ -65,7 +62,7 @@ Create a branch
 
 Submit a Pull Request
 
-📄 License
+## 📄 License
 This project is licensed under the MIT License.
 
 
