@@ -27,7 +27,6 @@ blood-cancer-detection/
 ├── README.md # Project documentation
 └── requirements.txt # List of dependencies
 
-
 ## 🚀 How to Run the Project
 
 ### 1. Clone the Repository
@@ -35,49 +34,14 @@ blood-cancer-detection/
 ```bash
 git clone https://github.com/rishika712/blood-cancer-detection.git
 cd blood-cancer-detection
-### 2. Set Up Environment
-(Optional but recommended)
 
-bash
-Copy
-Edit
+2. Set Up Environment (Optional but recommended)
 python -m venv venv
 source venv/bin/activate        # For Linux/macOS
 venv\Scripts\activate           # For Windows
-### 3. Install Required Libraries
-bash
-Copy
-Edit
+
+3. Install Required Libraries
 pip install -r requirements.txt
-### 4. Run the Notebook
-Launch Jupyter Notebook and open the file:
 
-bash
-Copy
-Edit
-jupyter notebook Blood_Cancer_Detection.ipynb
-📊 Model Evaluation
-Note: Add your actual results here if available.
 
-Training Accuracy: ~95%
 
-Validation Accuracy: ~92%
-
-Loss Curves: Smooth convergence over epochs
-
-Metrics Used: Accuracy, Confusion Matrix, Precision, Recall
-
-⚠️ Disclaimer
-This project is intended for educational and research purposes only and should not be used as a substitute for professional medical advice, diagnosis, or treatment.
-
-🤝 Contribution
-Have suggestions or want to improve the model? Feel free to:
-
-Fork the repo
-
-Create a branch
-
-Submit a Pull Request
-
-📄 License
-This project is licensed under the MIT License.
